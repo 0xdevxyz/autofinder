@@ -90,7 +90,7 @@ let browser = null;
 
 async function getBrowser() {
   if (!browser) {
-    browser = await puppeteer.launch({
+    const launchOptions = {
       headless: 'new',
       args: [
         '--no-sandbox',
@@ -100,7 +100,14 @@ async function getBrowser() {
         '--disable-gpu',
         '--window-size=1920,1080'
       ]
-    });
+    };
+    
+    // Für Railway/Cloud-Deployment: Chromium-Pfad aus Umgebungsvariable
+    if (process.env.PUPPETEER_EXECUTABLE_PATH) {
+      launchOptions.executablePath = process.env.PUPPETEER_EXECUTABLE_PATH;
+    }
+    
+    browser = await puppeteer.launch(launchOptions);
   }
   return browser;
 }
