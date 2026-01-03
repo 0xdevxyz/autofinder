@@ -1,0 +1,57 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Outfit:wght@100..900&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'DM Sans', system-ui, sans-serif;
+  background: linear-gradient(135deg, #0d0d0d 0%, #1a1a1a 50%, #0d0d0d 100%);
+  min-height: 100vh;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #1a1a1a;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #434343;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #515151;
+}
+
+/* Glow effect for new items */
+.new-listing {
+  animation: newGlow 2s ease-in-out;
+}
+
+@keyframes newGlow {
+  0%, 100% {
+    box-shadow: 0 0 10px rgba(0, 212, 170, 0.3);
+  }
+  50% {
+    box-shadow: 0 0 25px rgba(0, 212, 170, 0.6);
+  }
+}
+
+/* Platform badges */
+.platform-mobile { background: linear-gradient(135deg, #ff6b00, #ff9500); }
+.platform-autoscout { background: linear-gradient(135deg, #ff5500, #ff7700); }
+.platform-ebay { background: linear-gradient(135deg, #e53238, #0064d2); }
+.platform-kleinanzeigen { background: linear-gradient(135deg, #86b817, #5a8c00); }
+.platform-uncle { background: linear-gradient(135deg, #1a73e8, #4285f4); }
